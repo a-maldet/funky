@@ -41,10 +41,12 @@ library(funky)
   - `get_call_args()`: Returns a named list holding all argument values
     of the current function call (including non-overwritten default
     values).
-  - `set_fn_defaults()`: Set the defaults for a given function. Can be
-    useful for customizing various functions.
-  - `get_defaults()`: Return all function arguments including their
-    default values for a given function.
+  - `call_with_similar_args()`: Used inside of a function call in order
+    to call another function using the same or similar calling
+    arguments. This can **save a lot of code** when creating a function
+    that is a mere **wrapper** of another function. For example, when
+    developing R packages, the exported functions are often just
+    wrappers.
 
 ## Remark:
 
