@@ -1,7 +1,7 @@
 Package: funky
 Type: Package
 Title: Functional Programming In R Should Be FunKy
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(person("Adrian", "Maldet", email = "a.maldet@posteo.at", role = c("aut", "cre")))
 Maintainers@R: c(person("Adrian", "Maldet", email = "a.maldet@posteo.at", role = c("aut", "cre")))
 Description: This R package makes functional programming
