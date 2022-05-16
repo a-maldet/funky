@@ -250,7 +250,7 @@ get_call_args_helper <- function(n = 1L, err_h) {
 #' @return The return value of the called function given in `fn`.
 #' @export
 call_with_similar_args <- function(fn, ..., skip = NULL, n = 0L) {
-  err_h <- composerr("Error while calling `call_fn_with_similar_args()`")
+  err_h <- composerr("Error while calling `call_with_similar_args()`")
   if (!is.function(fn))
     err_h("Argument `fn` must be a function.")
   if ((!is.null(skip) && !is.character(skip)) || (is.character(skip) && any(is.na(skip)))) {
@@ -271,14 +271,9 @@ call_with_similar_args <- function(fn, ..., skip = NULL, n = 0L) {
     list(...),
     args[!names(args) %in% skip]
   )
-  tryCatch(
-    do.call(
-      fn,
-      args = args
-    ),
-    error = function(e) err_h(paste0(
-      "Could not evaluate the function given in argument `fn`: ", e
-    ))
+  do.call(
+    fn,
+    args = args
   )
 }
 
