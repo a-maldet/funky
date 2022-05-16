@@ -216,12 +216,13 @@ get_call_args_helper <- function(n = 1L, err_h) {
     envir = parent.frame(n + 2L)
   ))
   args_call <- args_call[!names(args_call) %in% c("")]
-  for(i in seq_along(args_call)) {
-    args_call[[i]] <- eval(
-      args_call[[i]],
-      envir = parent.frame(n + 2L)
+  args_call <- lapply(
+    args_call,
+    function(x) eval(
+      x,
+      envir = parent.frame(n + 3L)
     )
-  }
+  )
   # possible defaults values of the function
   args_default <- as.list(rlang::fn_fmls(fn = rlang::caller_fn(n = n + 1L)))
   args_default <- args_default[names(args_default) != "..."]
